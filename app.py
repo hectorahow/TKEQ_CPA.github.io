@@ -59,4 +59,4 @@ def calculate():
     return jsonify(result_text=result_text, plot_url=plot_url)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
