@@ -20,6 +20,7 @@
             align-items: center;
             height: 100vh;
             background-color: #f5f5f5;
+            flex-direction: column;
         }
 
         /* Calculator container styling */
@@ -31,6 +32,7 @@
             overflow: hidden;
             max-width: 800px;
             width: 100%;
+            margin-bottom: 20px;
         }
 
         /* Left side form styling */
@@ -140,7 +142,7 @@
             </div>
             <br>
             <h2>TKEQ</h2>
-            <h2>CPA Forecast Calculator</h2>
+            <h3>CPA Forecast Calculator</h3>
             <br>
             <form id="forecastForm">
                 <div class="form-group">
@@ -155,8 +157,12 @@
         <div class="result-section">
             <h2>Forecast Results</h2>
             <div id="resultText" class="result-text">Enter a spend value to calculate forecast.</div>
-            <img id="resultImage" class="result-image" src="" alt="" style="display: none;">
         </div>
+    </div>
+
+    <!-- Image result displayed below the container -->
+    <div style="text-align: center;">
+        <img id="resultImage" class="result-image" src="" alt="" style="display: none;">
     </div>
 
     <script>
@@ -172,7 +178,6 @@
             })
             .then(response => response.json())
             .then(data => {
-                // Update result text and image
                 document.getElementById('resultText').textContent = data.result_text;
                 const resultImage = document.getElementById('resultImage');
                 resultImage.src = 'data:image/png;base64,' + data.plot_url;
